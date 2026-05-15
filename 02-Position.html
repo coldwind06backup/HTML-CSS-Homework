@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .flexbox {
+        /* 設定外層容器的最小高度為整個瀏覽器畫面高度，
+        讓 flex 有足夠的垂直空間可以把卡片置中 */
+        /* vh = view height 瀏覽器畫面的高度 */
+        /* 100vh = 高度至少等於整個瀏覽器畫面的高度 */
+        min-height: 100vh;
+
+        /* 主軸設定置中（預設 flex-direction: row，所以這裡是水平置中） */
+        justify-content: center;
+
+        /* 交叉軸設定置中（預設 flex-direction: row，所以這裡是垂直置中） */
+        align-items: center;
+
+        /* display類型設定為flex做成彈性盒子 */
+        display: flex;
+      }
+
+      .card {
+        /* margin: 0; */
+        width: 500px;
+        height: 500px;
+        border: 1px solid gray;
+      }
+      .card-img {
+        /* 定位:相對定位；讓裡面的絕對定位元素 .card-icon 以 .card-img 為定位參考 */
+        position: relative;
+      }
+
+      .card-img img {
+        /* 將圖片改成 block，避免 img 預設 inline 特性造成底部有空隙 */
+        display: block;
+      }
+
+      .card-icon {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        color: white;
+        font-size: 30px;
+
+        /* 圓角 */
+        border-radius: 10px;
+
+        /* 設成彈性盒子，把文字置中 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* 定位:絕對定位；位置會參考最近有設定 position 的父層（.card-img） */
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+
+      .card-title {
+        font-size: 24pt;
+        padding-left: 5px;
+        padding-top: 5px;
+      }
+
+      .card-content {
+        padding-left: 10px;
+        padding-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flexbox">
+      <div class="card">
+        <div class="card-img">
+          <div class="card-icon">hot</div>
+          <img src="https://picsum.photos/500/300/?random=10" />
+        </div>
+        <div class="card-title">卡片標題</div>
+        <div class="card-content">
+          這是卡片的內容這是卡片的內容這是卡片的內容這是卡片的內容這是卡片的內容這是卡片的內容
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
