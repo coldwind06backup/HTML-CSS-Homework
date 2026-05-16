@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/global.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <style>
+      * {
+        /* 讓元素的寬高包含 padding 和 border，避免尺寸計算時超出預期 */
+        box-sizing: border-box;
+
+        /* 設定整個頁面的預設字型 */
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .container {
+        /* 容器寬度取「畫面寬度 - 32px」和「1120px」之中較小的值
+        小螢幕時左右各保留約 16px，大螢幕時最大寬度不超過 1120px */
+        width: min(100% - 32px, 1120px);
+
+        /* 讓容器在畫面中水平置中 */
+        margin: 0 auto;
+      }
+
+      .header {
+        background-color: #1f2937;
+      }
+
+      .navbar {
+        /* 將導覽列設定成 flex 彈性容器 */
+        display: flex;
+
+        /* 手機版先讓 logo 和選單上下排列 */
+        flex-direction: column;
+
+        /* 交叉軸置中，讓 logo 和選單水平置中 */
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 24px;
+        color: white;
+        text-align: center;
+
+        /* 設定 Logo 上下留白 */
+        padding-top: 16px;
+        padding-bottom: 16px;
+      }
+
+      .nav-link-group {
+        /* 讓導覽連結橫向排列 */
+        display: flex;
+
+        /* 設定導覽列和下方 hero 內容之間的距離 */
+        padding-bottom: 24px;
+
+        /* gap 第一個值是 row-gap，第二個值是 column-gap
+        這裡因為選單是橫向排列，所以主要用第二個值控制左右間距 */
+        gap: 0 16px;
+      }
+
+      .nav-link {
+        color: #e5e7eb;
+        font-size: 16px;
+
+        /* 移除連結預設底線 */
+        text-decoration: none;
+      }
+
+      .hero {
+        /* 設定 hero 區塊本身的上下留白 */
+        padding-top: 15px;
+        padding-bottom: 80px;
+      }
+      .hero-info {
+        /* 設定 hero 區塊本身的上下留白 */
+        display: flex;
+
+        /* 手機版讓標題、文字、按鈕、圖片由上到下排列 */
+        flex-direction: column;
+
+        /* 讓內容在水平方向置中 */
+        align-items: center;
+
+        /* 讓文字內容置中對齊 */
+        text-align: center;
+      }
+
+      .hero-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-info-title {
+        color: white;
+        font-size: 40px;
+
+        /* 設定標題外距，讓標題和周圍內容保持距離 */
+        margin: 0 0 16px;
+
+        /* 文字粗體 */
+        font-weight: 900;
+      }
+
+      .hero-info-description {
+        color: #e5e7eb;
+        font-size: 18px;
+        margin: 0 0 24px;
+      }
+
+      .hero-info-signup {
+        border: 1px solid #3882f6;
+
+        /* 設定按鈕內距，讓按鈕有高度和寬度 */
+        padding: 12px 32px;
+        background-color: #3882f6;
+        color: white;
+
+        /* 設定按鈕圓角 */
+        border-radius: 10px;
+
+        /* 設定按鈕和周圍元素的距離 */
+        margin-bottom: 40px;
+      }
+
+      .hero-image {
+        /* 寬度設定100%，讓圖片寬度吃滿它所在的容器 */
+        width: 100%;
+        /* 高度依照圖片比例自動縮放，避免變形 */
+        height: auto;
+        /* 避免圖片底下出現奇怪空隙 */
+        display: block;
+
+        /* 設定圖片圓角 */
+        border-radius: 10px;
+      }
+
+      .main-info {
+        padding: 64px 0px 96px;
+      }
+
+      .main-info h2 {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 900;
+
+        /* 清除預設外距，並只在標題下方保留 48px 距離 */
+        margin: 0 0 48px;
+      }
+
+      .cards {
+        display: flex;
+
+        /* 手機版讓卡片由上到下排列 */
+        flex-direction: column;
+
+        /* 讓每張卡片在水平方向置中 */
+        align-items: center;
+
+        /* 設定每張卡片之間的距離 */
+        gap: 40px;
+      }
+
+      .card {
+        /* 設定單張卡片寬度，讓圖片和文字都限制在這個範圍內 */
+        width: 160px;
+        text-align: center;
+        color: #4b5563;
+      }
+
+      .main-image {
+        /* 圖片寬度吃滿 .card 的寬度 */
+        width: 100%;
+
+        /* 設定圖片比例為正方形 */
+        aspect-ratio: 1 / 1;
+
+        /* 讓圖片填滿正方形範圍，多出的部分裁切，避免變形 */
+        object-fit: cover;
+
+        /* 避免圖片底下出現 inline 元素造成的預設空隙 */
+        display: block;
+
+        border-radius: 10px;
+        margin-bottom: 16px;
+      }
+      .quote {
+        background-color: #e5e7eb;
+        padding: 96px 0px;
+        width: 100%;
+      }
+
+      /* 選取 quote 區塊中的第一段文字，也就是引用內容 */
+      .quote p:first-child {
+        font-size: 28px;
+        margin-bottom: 20px;
+
+        /* 文字斜體 */
+        font-style: italic;
+      }
+
+      /* 選取 quote 區塊中的最後一段文字，也就是作者名稱 */
+      .quote p:last-child {
+        font-size: 16px;
+        font-weight: 800;
+
+        /* 讓作者名稱靠右對齊 */
+        text-align: right;
+      }
+
+      .call {
+        display: flex;
+
+        /* 讓 call 內的容器以直向方向排列 */
+        flex-direction: column;
+
+        /* 讓內容在水平方向置中 */
+        align-items: center;
+
+        /* 讓文字內容置中對齊 */
+        text-align: center;
+        padding: 80px 0;
+
+        color: white;
+      }
+
+      .call-card {
+        /* 設定藍色卡片的背景、內距與圓角 */
+        background-color: #3882f6;
+        padding: 32px 24px;
+        border-radius: 10px;
+      }
+
+      .call h3 {
+        font-size: 22px;
+        margin: 0 0 10px;
+      }
+
+      .call p {
+        color: #e5e7eb;
+      }
+
+      .call-signup {
+        border: 2px solid white;
+
+        /* 設定按鈕內距，讓按鈕有高度和寬度 */
+        padding: 12px 32px;
+        background-color: #3882f6;
+        color: white;
+
+        /* 設定按鈕圓角 */
+        border-radius: 10px;
+
+        /* 設定按鈕和周圍元素的距離 */
+        margin-top: 20px;
+      }
+
+      .footer {
+        width: 100%;
+        padding: 32px 0;
+        background-color: #1f2937;
+        color: #e5e7eb;
+        text-align: center;
+      }
+
+      @media screen and (min-width: 640px) {
+        /* 當螢幕寬度 >= 640時，navbar 改成橫向排列 */
+        .navbar {
+          flex-direction: row;
+          padding: 16px 0 32px;
+          justify-content: space-between;
+        }
+        .nav-link-group {
+          padding-bottom: 0;
+        }
+
+        .cards {
+          /* 平板版讓卡片改成橫向排列 */
+          flex-direction: row;
+
+          /* 卡片超出寬度時自動換行 */
+          flex-wrap: wrap;
+
+          /* 讓同一排的卡片左右分散排列 */
+          justify-content: space-between;
+
+          /* 限制卡片群組寬度，讓一排最多放兩張，形成 2 + 2 排列 */
+          max-width: 440px;
+          margin: 0 auto;
+        }
+      }
+
+      @media screen and (min-width: 1024px) {
+        .navbar {
+          /* 桌機版加大 navbar 下方留白，讓 hero 區塊有更多空間 */
+          padding: 16px 0 80px;
+        }
+
+        .hero-info {
+          /* 桌機版讓 hero 文字區和圖片左右排列 */
+          flex-direction: row;
+
+          /* 讓文字區和圖片左右分散 */
+          justify-content: space-between;
+
+          /* 讓文字區和圖片在垂直方向置中 */
+          align-items: center;
+
+          /* 桌機版文字改為靠左對齊 */
+          text-align: left;
+        }
+
+        .hero-text {
+          /* 設定左側文字區寬度 */
+          width: 45%;
+
+          /* 讓文字區內的標題、描述、按鈕靠左 */
+          align-items: flex-start;
+          margin: 0 15px;
+        }
+
+        .hero-image {
+          /* 設定右側圖片寬度 */
+          width: 48%;
+          margin: 0 15px;
+        }
+
+        .quote p:first-child {
+          /* 桌機版限制引用文字左右寬度，避免文字太寬 */
+          margin: 0 150px;
+        }
+        .quote p:last-child {
+          /* 桌機版讓作者文字和上方引用內容保持距離，並對齊相同左右範圍 */
+          margin: 25px 150px 0;
+        }
+
+        .cards {
+          /* 讓四張卡片平均分布 */
+          justify-content: space-around;
+
+          /* 桌機版放寬卡片群組寬度，讓四張卡片可以同一排 */
+          max-width: 960px;
+          margin: 0 auto;
+        }
+
+        .call-card {
+          /* 桌機版讓文字區和按鈕左右排列 */
+          display: flex;
+
+          /* 文字靠左、按鈕靠右 */
+          justify-content: space-between;
+
+          /* 讓文字區和按鈕垂直置中 */
+          align-items: center;
+
+          /* 桌機版文字靠左 */
+          text-align: left;
+        }
+
+        .call-text {
+          margin: 0 15px;
+        }
+
+        .call-signup {
+          /* 取消手機版按鈕上方間距，讓按鈕能和文字區水平對齊 */
+          margin-top: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <nav class="navbar">
+          <h1 class="logo">Header Logo</h1>
+          <ul class="nav-link-group">
+            <li><a href="#" class="nav-link">intro</a></li>
+            <li><a href="#" class="nav-link">contact</a></li>
+            <li><a href="#" class="nav-link">more</a></li>
+          </ul>
+        </nav>
+
+        <section class="hero">
+          <div class="hero-info">
+            <div class="hero-text">
+              <h2 class="hero-info-title">This website is awesome</h2>
+              <p class="hero-info-description">
+                This website has some subtext that goes here under the main
+                title. It’s a smaller font and the color is lower contrast.
+              </p>
+              <button class="hero-info-signup">Sign up</button>
+            </div>
+            <img
+              src="https://pub-e5ad6fa58965460ca72f9f8145a4d629.r2.dev/openai-images/70e942ed-c753-40c6-9789-dfa2f6c8fd0b.png"
+              alt="dog"
+              class="hero-image"
+            />
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="main-info">
+        <div class="container">
+          <h2>Some random information.</h2>
+          <div class="cards">
+            <div class="card">
+              <img
+                src="https://pub-e5ad6fa58965460ca72f9f8145a4d629.r2.dev/openai-images/70e942ed-c753-40c6-9789-dfa2f6c8fd0b.png"
+                alt="dog"
+                class="main-image"
+              />
+              <p>this is some subtext under an illustration or image</p>
+            </div>
+            <div class="card">
+              <img
+                src="https://pub-e5ad6fa58965460ca72f9f8145a4d629.r2.dev/openai-images/70e942ed-c753-40c6-9789-dfa2f6c8fd0b.png"
+                alt="dog"
+                class="main-image"
+              />
+              <p>this is some subtext under an illustration or image</p>
+            </div>
+            <div class="card">
+              <img
+                src="https://pub-e5ad6fa58965460ca72f9f8145a4d629.r2.dev/openai-images/70e942ed-c753-40c6-9789-dfa2f6c8fd0b.png"
+                alt="dog"
+                class="main-image"
+              />
+              <p>this is some subtext under an illustration or image</p>
+            </div>
+            <div class="card">
+              <img
+                src="https://pub-e5ad6fa58965460ca72f9f8145a4d629.r2.dev/openai-images/70e942ed-c753-40c6-9789-dfa2f6c8fd0b.png"
+                alt="dog"
+                class="main-image"
+              />
+              <p>this is some subtext under an illustration or image</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="quote">
+        <div class="container">
+          <p>
+            This is an inspiring quote, or a testimonial from a customer. Maybe
+            it’s just filling up space, or maybe people will actually read it.
+            Who knows? All I know is that it looks nice.
+          </p>
+          <p>-Thor, God of Thunder</p>
+        </div>
+      </section>
+
+      <section class="call">
+        <div class="container">
+          <div class="call-card">
+            <div class="call-text">
+              <h3>Call to action! It’s time!</h3>
+              <p>
+                Sign up for our product by clicking that button right over
+                there!
+              </p>
+            </div>
+            <button class="call-signup">Sign up</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">Copyright © The Odin Project 2021</footer>
+  </body>
+</html>
