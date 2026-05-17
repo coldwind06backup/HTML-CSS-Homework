@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <style>
+      .header {
+        background-color: #1f2937;
+      }
+
+      .nav-link {
+        color: #e5e7eb;
+        font-size: 16px;
+        text-decoration: none;
+      }
+
+      .hero-info-signup {
+        border: 1px solid #3882f6;
+        background-color: #3882f6;
+      }
+
+      .info-item {
+        max-width: 160px;
+        color: #4b5563;
+      }
+
+      .main-image {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        display: block;
+      }
+
+      .quote {
+        background-color: #e5e7eb;
+        width: 100%;
+      }
+
+      .call-card {
+        background-color: #3882f6;
+      }
+
+      .call p {
+        color: #e5e7eb;
+      }
+
+      .call-signup {
+        border: 2px solid white;
+        background-color: #3882f6;
+      }
+
+      .footer {
+        background-color: #1f2937;
+        color: #e5e7eb;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <nav
+          class="d-flex flex-column flex-sm-row align-items-center justify-content-sm-between py-3"
+        >
+          <h1 class="fs-4 fw-bold text-white mb-3 mb-sm-0">Header Logo</h1>
+          <ul class="nav d-flex flex-row gap-3">
+            <li class="nav-item">
+              <a class="nav-link text-light p-0" href="#">intro</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light p-0" href="#">contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light p-0" href="#">more</a>
+            </li>
+          </ul>
+        </nav>
+
+        <section class="hero pt-2 pb-5">
+          <div
+            class="hero-info d-flex flex-column flex-lg-row align-items-center text-center text-lg-start text-white gap-4"
+          >
+            <div
+              class="hero-text d-flex flex-column align-items-center align-items-lg-start col-lg-6"
+            >
+              <h2 class="hero-info-title fs-1 fw-bold">
+                This website is awesome
+              </h2>
+              <p class="hero-info-description">
+                This website has some subtext that goes here under the main
+                title. It’s a smaller font and the color is lower contrast.
+              </p>
+              <button
+                class="hero-info-signup px-4 py-2 mb-5 mb-lg-0 text-white rounded-3"
+              >
+                Sign up
+              </button>
+            </div>
+
+            <div class="hero-img-wrap col-lg-6">
+              <img
+                src="https://pub-e5ad6fa58965460ca72f9f8145a4d629.r2.dev/openai-images/70e942ed-c753-40c6-9789-dfa2f6c8fd0b.png"
+                alt="dog"
+                class="hero-image img-fluid rounded-3"
+              />
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="main-info pt-5 pb-5">
+        <div class="container text-center">
+          <h2 class="fs-2 fw-bold mb-5">Some random information.</h2>
+          <div class="row g-4 justify-content-center">
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="info-item mx-auto text-center">
+                <img
+                  src="https://pub-e5ad6fa58965460ca72f9f8145a4d629.r2.dev/openai-images/70e942ed-c753-40c6-9789-dfa2f6c8fd0b.png"
+                  alt="dog"
+                  class="main-image rounded-3 mb-3"
+                />
+                <p>this is some subtext under an illustration or image</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="info-item mx-auto text-center">
+                <img
+                  src="https://pub-e5ad6fa58965460ca72f9f8145a4d629.r2.dev/openai-images/70e942ed-c753-40c6-9789-dfa2f6c8fd0b.png"
+                  alt="dog"
+                  class="main-image rounded-3 mb-3"
+                />
+                <p>this is some subtext under an illustration or image</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="info-item mx-auto text-center">
+                <img
+                  src="https://pub-e5ad6fa58965460ca72f9f8145a4d629.r2.dev/openai-images/70e942ed-c753-40c6-9789-dfa2f6c8fd0b.png"
+                  alt="dog"
+                  class="main-image rounded-3 mb-3"
+                />
+                <p>this is some subtext under an illustration or image</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="info-item mx-auto text-center">
+                <img
+                  src="https://pub-e5ad6fa58965460ca72f9f8145a4d629.r2.dev/openai-images/70e942ed-c753-40c6-9789-dfa2f6c8fd0b.png"
+                  alt="dog"
+                  class="main-image rounded-3 mb-3"
+                />
+                <p>this is some subtext under an illustration or image</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="quote py-5">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+              <p class="fst-italic fs-2 text-dark mb-4">
+                This is an inspiring quote, or a testimonial from a customer.
+                Maybe it’s just filling up space, or maybe people will actually
+                read it. Who knows? All I know is that it looks nice.
+              </p>
+              <p class="fs-5 fw-bold text-end mb-0">-Thor, God of Thunder</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="call text-center text-white py-5">
+        <div class="container">
+          <div
+            class="call-card rounded-3 p-4 p-md-5 d-md-flex justify-content-md-between align-items-md-center text-md-start"
+          >
+            <div class="call-text mb-4 mb-md-0">
+              <h3 class="fs-4 fw-bold mb-2">Call to action! It’s time!</h3>
+              <p class="mb-0">
+                Sign up for our product by clicking that button right over
+                there!
+              </p>
+            </div>
+
+            <button class="call-signup btn btn-outline-light fw-bold px-4 py-2">
+              Sign up
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer py-4 text-center">
+      Copyright © The Odin Project 2021
+    </footer>
+  </body>
+</html>
